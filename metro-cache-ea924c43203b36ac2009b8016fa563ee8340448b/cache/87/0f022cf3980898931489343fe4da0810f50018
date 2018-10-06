@@ -82,6 +82,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
       value: function userLogin() {
         var _this2 = this;
 
+        console.log('pippo');
         fetch('https://www.topjet.it/admin/login', {
           method: 'POST',
           headers: {
@@ -111,6 +112,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
       value: function render() {
         var _this3 = this;
 
+        console.log('pluto');
         return _react3.default.createElement(
           _reactNative.ScrollView,
           {
@@ -119,7 +121,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 55
+              lineNumber: 57
             }
           },
           _react3.default.createElement(
@@ -130,7 +132,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 56
+                lineNumber: 58
               }
             },
             "Login"
@@ -144,7 +146,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             value: this.state._username,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 60
+              lineNumber: 62
             }
           }),
           _react3.default.createElement(_reactNative.TextInput, {
@@ -156,7 +158,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             value: this.state._password,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 64
+              lineNumber: 66
             }
           }),
           _react3.default.createElement(_reactNative.View, {
@@ -165,7 +167,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 68
+              lineNumber: 70
             }
           }),
           _react3.default.createElement(_reactNative.Button, {
@@ -173,7 +175,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             title: "Submit",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 69
+              lineNumber: 71
             }
           })
         );
@@ -189,7 +191,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
               style: styles.helpLinkText,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 81
+                lineNumber: 83
               }
             },
             "Learn more"
@@ -201,7 +203,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
               style: styles.developmentModeText,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 87
+                lineNumber: 89
               }
             },
             "Development mode is enabled, your app will be slower but you can use useful development tools. ",
@@ -214,7 +216,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
               style: styles.developmentModeText,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 94
+                lineNumber: 96
               }
             },
             "You are not in development mode, your app will run at full speed."

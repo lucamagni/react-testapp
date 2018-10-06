@@ -1,0 +1,8 @@
+Documentazione utile per lanciare la remote debugger con Expo:
+
+- accertarsi di avere la connessione LAN e di essere sulla stessa rete wi-fi tra il pc e lo smartphone su cui si sta testando l'app
+- su Chrome aprire l'indirizzo http://localhost:19001/debugger-ui/
+- shakerare lo smartphone fino a far comparire la Debugging Tool, cliccare su Debug JS remotly
+- Accertarsi di aver scaricato e attivato l'estensione di Chrome Allow Cross Origin*
+- Tornare sulla scheda di Chrome aperta all'indirizzo http://localhost:19001/debugger-ui/ aprendo la console di Chrome
+- Dalla console di Chrome andare su Settings>Blackboxing, accertarsi che sia flaggato "Blackbox content scripts" e aggiungere il seguente pattern: "expo/src/Logs.js"

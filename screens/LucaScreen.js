@@ -24,6 +24,7 @@ export default class HomeScreen extends React.Component {
     message: ''
   }
   userLogin() {
+    console.log('pippo');
 
     fetch('https://www.topjet.it/admin/login', {
     method: 'POST',
@@ -51,6 +52,7 @@ export default class HomeScreen extends React.Component {
   }
 
   render() {
+    console.log('pluto');
     return (
       <ScrollView style={{padding: 20}}>
                 <Text 
