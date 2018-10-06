@@ -1,0 +1,89 @@
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  var _jsxFileName = "/var/www/React/navigation/MainTabNavigator.js";
+
+  var _react = _require(_dependencyMap[0], "react");
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _reactNative = _require(_dependencyMap[1], "react-native");
+
+  var _reactNavigation = _require(_dependencyMap[2], "react-navigation");
+
+  var _TabBarIcon = _require(_dependencyMap[3], "../components/TabBarIcon");
+
+  var _TabBarIcon2 = _interopRequireDefault(_TabBarIcon);
+
+  var _LucaScreen = _require(_dependencyMap[4], "../screens/LucaScreen");
+
+  var _LucaScreen2 = _interopRequireDefault(_LucaScreen);
+
+  var _LinksScreen = _require(_dependencyMap[5], "../screens/LinksScreen");
+
+  var _LinksScreen2 = _interopRequireDefault(_LinksScreen);
+
+  var _SettingsScreen = _require(_dependencyMap[6], "../screens/SettingsScreen");
+
+  var _SettingsScreen2 = _interopRequireDefault(_SettingsScreen);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  var HomeStack = (0, _reactNavigation.createStackNavigator)({
+    Home: _LucaScreen2.default
+  });
+  HomeStack.navigationOptions = {
+    tabBarLabel: 'Home',
+    tabBarIcon: function tabBarIcon(_ref) {
+      var focused = _ref.focused;
+      return _react2.default.createElement(_TabBarIcon2.default, {
+        focused: focused,
+        name: _reactNative.Platform.OS === 'ios' ? "ios-information-circle" + (focused ? '' : '-outline') : 'md-information-circle',
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 17
+        }
+      });
+    }
+  };
+  var LinksStack = (0, _reactNavigation.createStackNavigator)({
+    Links: _LinksScreen2.default
+  });
+  LinksStack.navigationOptions = {
+    tabBarLabel: 'Links',
+    tabBarIcon: function tabBarIcon(_ref2) {
+      var focused = _ref2.focused;
+      return _react2.default.createElement(_TabBarIcon2.default, {
+        focused: focused,
+        name: _reactNative.Platform.OS === 'ios' ? "ios-link" + (focused ? '' : '-outline') : 'md-link',
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 35
+        }
+      });
+    }
+  };
+  var SettingsStack = (0, _reactNavigation.createStackNavigator)({
+    Settings: _SettingsScreen2.default
+  });
+  SettingsStack.navigationOptions = {
+    tabBarLabel: 'Settings',
+    tabBarIcon: function tabBarIcon(_ref3) {
+      var focused = _ref3.focused;
+      return _react2.default.createElement(_TabBarIcon2.default, {
+        focused: focused,
+        name: _reactNative.Platform.OS === 'ios' ? "ios-options" + (focused ? '' : '-outline') : 'md-options',
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 49
+        }
+      });
+    }
+  };
+  exports.default = (0, _reactNavigation.createBottomTabNavigator)({
+    HomeStack: HomeStack,
+    LinksStack: LinksStack,
+    SettingsStack: SettingsStack
+  });
+});
