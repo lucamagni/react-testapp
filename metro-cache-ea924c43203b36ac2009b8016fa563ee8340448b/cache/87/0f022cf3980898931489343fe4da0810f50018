@@ -11,12 +11,10 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _index2 = _interopRequireDefault(_index);
 
-  var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
   var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
   var _class,
-      _temp2,
+      _temp,
       _jsxFileName = "/var/www/React/screens/LucaScreen.js";
 
   var _reactNative = _require(_dependencyMap[2], "react-native");
@@ -52,29 +50,19 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     };
   }
 
-  var HomeScreen = _wrapComponent("HomeScreen")((_temp2 = _class = function (_React$Component) {
+  var HomeScreen = _wrapComponent("HomeScreen")((_temp = _class = function (_React$Component) {
     _inherits(HomeScreen, _React$Component);
 
-    function HomeScreen() {
-      var _ref;
-
-      var _temp, _this, _ret;
-
+    function HomeScreen(props) {
       _classCallCheck(this, HomeScreen);
 
-      for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
+      var _this = _possibleConstructorReturn(this, (HomeScreen.__proto__ || Object.getPrototypeOf(HomeScreen)).call(this, props));
 
-      return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = HomeScreen.__proto__ || Object.getPrototypeOf(HomeScreen)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-        _username: '',
-        _password: '',
-        message: ''
-      }, _this._handleLearnMorePress = function () {
-        _expo.WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
-      }, _this._handleHelpPress = function () {
-        _expo.WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes');
-      }, _temp), _possibleConstructorReturn(_this, _ret);
+      _this.state = {
+        username: "",
+        password: ""
+      };
+      return _this;
     }
 
     _createClass(HomeScreen, [{
@@ -82,7 +70,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
       value: function userLogin() {
         var _this2 = this;
 
-        console.log('pippo');
+        console.log(this.state);
         fetch('https://www.topjet.it/admin/login', {
           method: 'POST',
           headers: {
@@ -90,8 +78,8 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            _username: this.state._username,
-            _password: this.state._password
+            _username: this.state.username,
+            _password: this.state.password
           })
         }).then(function (response) {
           return response.json();
@@ -101,6 +89,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
               message: response.message
             });
           } else {
+            console.log(responseJson);
             _this2.state.message = response.message;
           }
         }).catch(function (error) {
@@ -112,7 +101,6 @@ __d(function (global, _require, module, exports, _dependencyMap) {
       value: function render() {
         var _this3 = this;
 
-        console.log('pluto');
         return _react3.default.createElement(
           _reactNative.ScrollView,
           {
@@ -121,7 +109,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 57
+              lineNumber: 60
             }
           },
           _react3.default.createElement(
@@ -132,33 +120,33 @@ __d(function (global, _require, module, exports, _dependencyMap) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 58
+                lineNumber: 61
               }
             },
             "Login"
           ),
           _react3.default.createElement(_reactNative.TextInput, {
-            onChangeText: function onChangeText(_username) {
+            onChangeText: function onChangeText(username) {
               return _this3.setState({
-                _username: _username
+                username: username
               });
             },
-            value: this.state._username,
+            value: this.state.username,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 62
+              lineNumber: 65
             }
           }),
           _react3.default.createElement(_reactNative.TextInput, {
-            onChangeText: function onChangeText(_password) {
+            onChangeText: function onChangeText(password) {
               return _this3.setState({
-                _password: _password
+                password: password
               });
             },
-            value: this.state._password,
+            value: this.state.password,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 66
+              lineNumber: 69
             }
           }),
           _react3.default.createElement(_reactNative.View, {
@@ -167,159 +155,28 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 70
+              lineNumber: 73
             }
           }),
           _react3.default.createElement(_reactNative.Button, {
-            onPress: this.userLogin,
+            onPress: function onPress() {
+              return _this3.userLogin();
+            },
             title: "Submit",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 71
+              lineNumber: 74
             }
           })
         );
-      }
-    }, {
-      key: "_maybeRenderDevelopmentModeWarning",
-      value: function _maybeRenderDevelopmentModeWarning() {
-        if (__DEV__) {
-          var learnMoreButton = _react3.default.createElement(
-            _reactNative.Text,
-            {
-              onPress: this._handleLearnMorePress,
-              style: styles.helpLinkText,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 83
-              }
-            },
-            "Learn more"
-          );
-
-          return _react3.default.createElement(
-            _reactNative.Text,
-            {
-              style: styles.developmentModeText,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 89
-              }
-            },
-            "Development mode is enabled, your app will be slower but you can use useful development tools. ",
-            learnMoreButton
-          );
-        } else {
-          return _react3.default.createElement(
-            _reactNative.Text,
-            {
-              style: styles.developmentModeText,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 96
-              }
-            },
-            "You are not in development mode, your app will run at full speed."
-          );
-        }
       }
     }]);
 
     return HomeScreen;
   }(_react3.default.Component), _class.navigationOptions = {
     header: null
-  }, _temp2));
+  }, _temp));
 
   exports.default = HomeScreen;
-
-  var styles = _reactNative.StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff'
-    },
-    developmentModeText: {
-      marginBottom: 20,
-      color: 'rgba(0,0,0,0.4)',
-      fontSize: 14,
-      lineHeight: 19,
-      textAlign: 'center'
-    },
-    contentContainer: {
-      paddingTop: 30
-    },
-    welcomeContainer: {
-      alignItems: 'center',
-      marginTop: 10,
-      marginBottom: 20
-    },
-    welcomeImage: {
-      width: 100,
-      height: 80,
-      resizeMode: 'contain',
-      marginTop: 3,
-      marginLeft: -10
-    },
-    getStartedContainer: {
-      alignItems: 'center',
-      marginHorizontal: 50
-    },
-    homeScreenFilename: {
-      marginVertical: 7
-    },
-    codeHighlightText: {
-      color: 'rgba(96,100,109, 0.8)'
-    },
-    codeHighlightContainer: {
-      backgroundColor: 'rgba(0,0,0,0.05)',
-      borderRadius: 3,
-      paddingHorizontal: 4
-    },
-    getStartedText: {
-      fontSize: 17,
-      color: 'rgba(96,100,109, 1)',
-      lineHeight: 24,
-      textAlign: 'center'
-    },
-    tabBarInfoContainer: _extends({
-      position: 'absolute',
-      bottom: 0,
-      left: 0,
-      right: 0
-    }, _reactNative.Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: {
-          height: -3
-        },
-        shadowOpacity: 0.1,
-        shadowRadius: 3
-      },
-      android: {
-        elevation: 20
-      }
-    }), {
-      alignItems: 'center',
-      backgroundColor: '#fbfbfb',
-      paddingVertical: 20
-    }),
-    tabBarInfoText: {
-      fontSize: 17,
-      color: 'rgba(96,100,109, 1)',
-      textAlign: 'center'
-    },
-    navigationFilename: {
-      marginTop: 5
-    },
-    helpContainer: {
-      marginTop: 15,
-      alignItems: 'center'
-    },
-    helpLink: {
-      paddingVertical: 15
-    },
-    helpLinkText: {
-      fontSize: 14,
-      color: '#2e78b7'
-    }
-  });
+  ;
 });

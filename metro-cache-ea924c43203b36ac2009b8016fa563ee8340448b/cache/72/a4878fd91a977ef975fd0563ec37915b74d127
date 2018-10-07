@@ -9,13 +9,31 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _reactNavigation = _require(_dependencyMap[1], "react-navigation");
 
-  var _MainTabNavigator = _require(_dependencyMap[2], "./MainTabNavigator");
+  var _AuthLoadingScreen = _require(_dependencyMap[2], "./AuthLoadingScreen");
 
-  var _MainTabNavigator2 = _interopRequireDefault(_MainTabNavigator);
+  var _AuthLoadingScreen2 = _interopRequireDefault(_AuthLoadingScreen);
+
+  var _LoginPage = _require(_dependencyMap[3], "./LoginPage");
+
+  var _LoginPage2 = _interopRequireDefault(_LoginPage);
+
+  var _HomeScreenPage = _require(_dependencyMap[4], "./HomeScreenPage");
+
+  var _HomeScreenPage2 = _interopRequireDefault(_HomeScreenPage);
 
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+  var AppStack = (0, _reactNavigation.createStackNavigator)({
+    HomeScreen: _HomeScreenPage2.default
+  });
+  var AuthStack = (0, _reactNavigation.createStackNavigator)({
+    SignInScreen: _LoginPage2.default
+  });
   exports.default = (0, _reactNavigation.createSwitchNavigator)({
-    Main: _MainTabNavigator2.default
+    AuthLoading: _AuthLoadingScreen2.default,
+    App: AppStack,
+    Auth: AuthStack
+  }, {
+    initialRouteName: 'AuthLoading'
   });
 });
