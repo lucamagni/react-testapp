@@ -15,11 +15,19 @@ export default class AuthLoadingScreen extends React.Component {
 
   // Fetch the token from storage then navigate to our appropriate place
   _bootstrapAsync = async () => {
-    const userToken = await AsyncStorage.getItem('userToken');
 
+    try{
+      const userToken = await AsyncStorage.getItem('X-Auth-Token');
+      //alert(userToken);
+      this.props.navigation.navigate(userToken ? 'App' : 'Auth'); //QUI VADO NELLA ROUTE APP O AUTH A SECONDA CHE ABBIA IL TOKEN SALVATO O MENO
+    }
+    catch (error) {
+      alert(error);
+    }
     // This will switch to the App screen or Auth screen and this loading
     // screen will be unmounted and thrown away.
-    this.props.navigation.navigate(userToken ? 'App' : 'Auth');
+
+    //attraverso this.props.navigation.navigate posso switchare i vari route
   };
 
   // Render any loading content that you like here

@@ -6,3 +6,13 @@ Documentazione utile per lanciare la remote debugger con Expo:
 - Accertarsi di aver scaricato e attivato l'estensione di Chrome Allow Cross Origin*
 - Tornare sulla scheda di Chrome aperta all'indirizzo http://localhost:19001/debugger-ui/ aprendo la console di Chrome
 - Dalla console di Chrome andare su Settings>Blackboxing, accertarsi che sia flaggato "Blackbox content scripts" e aggiungere il seguente pattern: "expo/src/Logs.js"
+
+
+-> responsive su tablet e smartphone
+-> traduzioni
+-> oggetto per le form
+-> login con Google e Facebook
+-> notifiche push
+-> local storage (salvare dati locali tipo token)
+-> compilazione ed aggiornamento versione app su android e su ios
+-> centralizzare gestione errori

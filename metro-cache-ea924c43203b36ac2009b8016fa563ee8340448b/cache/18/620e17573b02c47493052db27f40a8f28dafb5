@@ -77,21 +77,30 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
               case 2:
                 response = _context.sent;
-                console.log(response);
-                _context.next = 6;
+                _context.next = 5;
                 return regeneratorRuntime.awrap(response.json());
 
-              case 6:
+              case 5:
                 responseJson = _context.sent;
-                console.log(responseJson);
 
-                if (response.status == 200 && responseJson.message != "Invalid credentials") {
-                  _this.props.navigation.navigate('App');
-                } else {
-                  console.log('sbagliato');
+                if (!(response.status == 200 && responseJson.message != "Invalid credentials")) {
+                  _context.next = 12;
+                  break;
                 }
 
+                _context.next = 9;
+                return regeneratorRuntime.awrap(_reactNative.AsyncStorage.setItem('X-Auth-Token', responseJson.token));
+
               case 9:
+                _this.props.navigation.navigate('App');
+
+                _context.next = 13;
+                break;
+
+              case 12:
+                console.log('sbagliato');
+
+              case 13:
               case "end":
                 return _context.stop();
             }
@@ -111,7 +120,6 @@ __d(function (global, _require, module, exports, _dependencyMap) {
       value: function userLogin() {
         var _this3 = this;
 
-        console.log(this.state);
         fetch('https://www.topjet.it/admin/login', {
           method: 'POST',
           headers: {
@@ -130,7 +138,6 @@ __d(function (global, _require, module, exports, _dependencyMap) {
               message: response.message
             });
           } else {
-            console.log(responseJson);
             _this3.state.message = response.message;
           }
         }).catch(function (error) {
@@ -147,7 +154,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 59
+              lineNumber: 57
             }
           },
           _react3.default.createElement(_reactNative.TextInput, {
@@ -159,7 +166,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             value: this.state.username,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 60
+              lineNumber: 58
             }
           }),
           _react3.default.createElement(_reactNative.TextInput, {
@@ -171,7 +178,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             value: this.state.password,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 64
+              lineNumber: 62
             }
           }),
           _react3.default.createElement(_reactNative.Button, {
@@ -179,7 +186,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             onPress: this._signInAsync,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 68
+              lineNumber: 66
             }
           })
         );

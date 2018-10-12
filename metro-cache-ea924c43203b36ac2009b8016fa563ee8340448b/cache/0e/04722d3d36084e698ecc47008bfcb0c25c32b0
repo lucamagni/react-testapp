@@ -61,12 +61,12 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem('userToken'));
+                return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem('X-Auth-Token'));
 
               case 2:
                 userToken = _context.sent;
 
-                _this.props.navigation.navigate(userToken ? 'App' : 'Auth');
+                _this.props.navigation.navigate('X-Auth-Token' ? 'App' : 'Auth');
 
               case 4:
               case "end":
@@ -89,20 +89,20 @@ __d(function (global, _require, module, exports, _dependencyMap) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 28
+              lineNumber: 30
             }
           },
           _react3.default.createElement(_reactNative.ActivityIndicator, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 29
+              lineNumber: 31
             }
           }),
           _react3.default.createElement(_reactNative.StatusBar, {
             barStyle: "default",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 30
+              lineNumber: 32
             }
           })
         );

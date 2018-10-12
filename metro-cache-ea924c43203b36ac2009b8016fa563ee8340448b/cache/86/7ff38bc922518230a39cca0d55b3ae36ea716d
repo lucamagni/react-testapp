@@ -19,6 +19,8 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _reactNative = _require(_dependencyMap[2], "react-native");
 
+  var _Token = _require(_dependencyMap[3], "./Token");
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -91,7 +93,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 18
+              lineNumber: 22
             }
           },
           _react3.default.createElement(_reactNative.Button, {
@@ -99,7 +101,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             onPress: this._showMoreApp,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 19
+              lineNumber: 23
             }
           }),
           _react3.default.createElement(_reactNative.Button, {
@@ -107,9 +109,19 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             onPress: this._signOutAsync,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 20
+              lineNumber: 24
             }
-          })
+          }),
+          _react3.default.createElement(
+            _reactNative.Text,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 25
+              }
+            },
+            _Token.Token
+          )
         );
       }
     }]);

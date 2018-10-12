@@ -2,3 +2,7 @@
 adb I 15349 15349 main.cpp:78] Android Debug Bridge version 1.0.36
 adb I 15349 15349 main.cpp:78] Revision af05c7354fe1-android
 adb I 15349 15349 main.cpp:78] 
+--- adb starting (pid 2875) ---
+adb I  2875  2875 main.cpp:83] Android Debug Bridge version 1.0.36
+adb I  2875  2875 main.cpp:83] Revision 1:7.0.0+r33-2
+adb I  2875  2875 main.cpp:83] 

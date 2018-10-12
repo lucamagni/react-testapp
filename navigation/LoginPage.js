@@ -24,36 +24,6 @@ export default class SignInScreen extends React.Component {
     title: 'Please sign in',
   };
 
-
-  userLogin() {
-    console.log(this.state);
-
-    fetch('https://www.topjet.it/admin/login', {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type' : 'application/json'
-    },
-    body: JSON.stringify({
-    _username: this.state.username,
-    _password: this.state.password,
-    }),
-    })
-    .then((response) => response.json())
-    .then((responseJson) => {
-        if(response.error) {
-          this.setState({message: response.message})
-        }
-        else {
-          console.log(responseJson);
-          this.state.message = response.message;
-        }
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  }
-
   render() {
     return (
       <View>
@@ -83,17 +53,13 @@ export default class SignInScreen extends React.Component {
       }),
     })
 
-    console.log(response);
-    let responseJson = await response.json();
-    console.log(responseJson);
-    
+    let responseJson = await response.json();    
     if(response.status == 200 && responseJson.message != "Invalid credentials" ) {
-      var StorageKey = await AsyncStorage.setItem('X-Auth-Token', responseJson.token); //credo si salvi il token qui
-      console.log(StorageKey);
+      await AsyncStorage.setItem('X-Auth-Token', responseJson.token); //credo si salvi il token qui
       this.props.navigation.navigate('App');
     }
     else {
-      console.log('sbagliato');
+      alert('sbagliato');
     }
   };
 }

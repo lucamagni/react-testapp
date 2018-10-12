@@ -16,12 +16,13 @@ export default class App extends React.Component {
           onError={this._handleLoadingError}
           onFinish={this._handleFinishLoading}
         />
+        //questo mi reindirizza all'AppNavigator, che ho incluso prima
       );
     } else {
       return (
         <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          <AppNavigator />
+          <AppNavigator /> 
         </View>
       );
     }
